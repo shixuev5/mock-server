@@ -1,0 +1,846 @@
+[
+    {
+        "_postman_id": "a80c8dbf-7773-19ca-7b1c-e665ad322514",
+        "name": "新增目录|addCatalog",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"name\": \"\",\n\t\"parentId\": \"\",\n\t\"access\": 1,\n\t\"owner\": 1,\n\t\"ownerId\": \"\",\n\t\"typeId\": \"\",\n\t\"description\": \"\"\n}"
+            },
+            "url": "{{baseUrl}}/resource/catalog/add",
+            "name": "addCatalog",
+            "rule": {
+                "name": {
+                    "type": "string",
+                    "required": true
+                },
+                "parentId": {
+                    "type": "string",
+                    "required": true
+                },
+                "access": {
+                    "type": "number",
+                    "required": true
+                },
+                "owner": {
+                    "type": "number",
+                    "required": true
+                },
+                "ownerId": {
+                    "type": "string",
+                    "required": true
+                },
+                "typeId": {
+                    "type": "string",
+                    "required": true
+                },
+                "description": {
+                    "type": "string",
+                    "required": false
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "520ffd18-1972-8319-bc49-1059f3873ab5",
+        "name": "更新目录|updateCatalog",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"id\": \"\",\n\t\"name\": \"\",\n\t\"description\": \"\"\n}"
+            },
+            "url": "{{baseUrl}}/resource/catalog/update",
+            "name": "updateCatalog",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "required": true
+                },
+                "description": {
+                    "type": "string",
+                    "required": false
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "1b4104ea-3db4-85ab-7c58-758abf047aa1",
+        "name": "删除目录|deleteCatalog",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+                "raw": "{{baseUrl}}/resource/catalog/delete?id=123",
+                "host": [
+                    "{{baseUrl}}"
+                ],
+                "path": [
+                    "resource",
+                    "catalog",
+                    "delete"
+                ],
+                "query": [
+                    {
+                        "key": "id",
+                        "value": "123",
+                        "equals": true,
+                        "description": "删除的目录id"
+                    }
+                ]
+            },
+            "name": "deleteCatalog",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "5b46015d-be64-ebb3-7a3e-77fcfb3cf82c",
+        "name": "查询目录|findCatalog",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"hasChild\": false,\n\t\"access\": 1,\n\t\"owner\": 1,\n\t\"ownerId\": \"\",\n\t\"resourceTypeId\": \"1,2\",\n\t\"orderby\": \"sort_asc\",\n\t\"getmode\": \"all\",\n\t\"parentId\": \"\"\n}"
+            },
+            "url": "{{baseUrl}}/resource/catalog/findall",
+            "name": "findCatalog",
+            "rule": {
+                "hasChild": {
+                    "type": "boolean",
+                    "required": true
+                },
+                "access": {
+                    "type": "number",
+                    "required": true
+                },
+                "owner": {
+                    "type": "number",
+                    "required": true
+                },
+                "ownerId": {
+                    "type": "string",
+                    "required": true
+                },
+                "resourceTypeId": {
+                    "type": "string",
+                    "required": false
+                },
+                "orderby": {
+                    "type": "string",
+                    "required": false
+                },
+                "getmode": {
+                    "type": "string",
+                    "required": false
+                },
+                "parentId": {
+                    "type": "string",
+                    "required": false
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "dfef1ef6-ec25-1bf5-a0c1-2802979aadda",
+        "name": "查询目录|findCatalogById",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+                "raw": "{{baseUrl}}/resource/catalog/findbyid/:id",
+                "host": [
+                    "{{baseUrl}}"
+                ],
+                "path": [
+                    "resource",
+                    "catalog",
+                    "findbyid",
+                    ":id"
+                ],
+                "variable": [
+                    {
+                        "key": "id",
+                        "value": ""
+                    }
+                ]
+            },
+            "name": "findCatalogById",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "de65da6c-d921-f9b6-ecaf-479fd968a942",
+        "name": "排序目录|sortCatalog",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"id\": \"\",\n\t\"type\": 0\n}"
+            },
+            "url": "{{baseUrl}}/resource/catalog/specifysort",
+            "name": "sortCatalog",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                },
+                "type": {
+                    "type": "number",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "88672ca7-1485-b715-4010-0a688e3bf58b",
+        "name": "迁移目录|moveCatalog",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n    \"catalogId\": \"\",\n\t\"fromId\": \"\",\t\n\t\"toId\": \"\"\t\n}\n"
+            },
+            "url": "{{baseUrl}}/resource/catalog/specifysort",
+            "name": "moveCatalog",
+            "rule": {
+                "catalogId": {
+                    "type": "string",
+                    "required": true
+                },
+                "fromId": {
+                    "type": "string",
+                    "required": true
+                },
+                "toId": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "1e8cd724-4620-913f-6b65-9650b32075d2",
+        "name": "常用目录|findCommonCatalog",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+                "raw": "{{baseUrl}}/resource/catalog/getcommoncatalog/:userId",
+                "host": [
+                    "{{baseUrl}}"
+                ],
+                "path": [
+                    "resource",
+                    "catalog",
+                    "getcommoncatalog",
+                    ":userId"
+                ],
+                "variable": [
+                    {
+                        "key": "userId",
+                        "value": ""
+                    }
+                ]
+            },
+            "name": "findCommonCatalog",
+            "rule": {
+                "userId": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "8191f46c-285b-e954-3ece-2aac3a851752",
+        "name": "查询资源类型|findResourceType",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"parentId\": \"\"\n}"
+            },
+            "url": "{{baseUrl}}/resource/resourcetype/findall",
+            "name": "findResourceType",
+            "rule": {
+                "parentId": {
+                    "type": "string",
+                    "required": false
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "e4d84b1e-c7e1-599c-8bfa-081f91c44c8f",
+        "name": "转换中文字符|findChar",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "text/plain"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "县道line"
+            },
+            "url": "{{baseUrl}}/resource/character/getPingYin",
+            "name": "findChar",
+            "rule": {
+                "text": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "41d837f0-f7c8-22a3-d402-08001d4c6d24",
+        "name": "下载业务文件|downloadResource",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+                "raw": "{{cloudUrl}}/clouddisk/gisserver/download/:id",
+                "host": [
+                    "{{cloudUrl}}"
+                ],
+                "path": [
+                    "clouddisk",
+                    "gisserver",
+                    "download",
+                    ":id"
+                ],
+                "variable": [
+                    {
+                        "key": "id",
+                        "value": ""
+                    }
+                ]
+            },
+            "name": "downloadResource",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "a1878de3-84e3-d4d4-89df-e41edcf393f3",
+        "name": "查询资源信息|findResourceInfo",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+                "raw": "{{baseUrl}}/resource/resourcegisex/findbyid/:id",
+                "host": [
+                    "{{baseUrl}}"
+                ],
+                "path": [
+                    "resource",
+                    "resourcegisex",
+                    "findbyid",
+                    ":id"
+                ],
+                "variable": [
+                    {
+                        "key": "id",
+                        "value": ""
+                    }
+                ]
+            },
+            "name": "findResourceInfo",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "c51676ab-bf95-1378-6e53-5268d29c7a8a",
+        "name": "更新资源信息|updateResourceInfo",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"id\":\"4028c8815ecb74be015ecc8039c60013\",\n\t\"alias\":\"myData\"\n}"
+            },
+            "url": "/resource/resource/update",
+            "name": "updateResourceInfo",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                },
+                "alias": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "501357e6-47c3-b07a-63cd-1fcaefb48523",
+        "name": "样式分类|styleTypes",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": "{{baseUrl}}/resource/styles/findtypes",
+            "name": "styleTypes",
+            "rule": {}
+        }
+    },
+    {
+        "_postman_id": "760659fd-d2ab-1951-f0ed-b54ed42e7b0a",
+        "name": "新增样式|addStyle",
+        "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+                "mode": "formdata",
+                "formdata": [
+                    {
+                        "key": "file",
+                        "value": "",
+                        "description": "",
+                        "type": "file"
+                    },
+                    {
+                        "key": "data",
+                        "value": "{\"alias\":\"test\",\"name\":\"test\",\"description\":\"\",\"classify\":\"DLGQ\",\"typeId\":\"20102\",\"TypeName\":\"sld\",\"catalogId\":\"402878815ec17f53015ec1e908320004\",\"userId\":\"402878815ec17f53015ec1ea7430000b\",\"userName\":\"portal\",\"orgId\":\"402878815ec17f53015ec1e907c40000\",\"orgName\":\"湖南省国土资源厅\"}",
+                        "description": "",
+                        "type": "text"
+                    }
+                ]
+            },
+            "url": "{{baseUrl}}/resource/resource/addstyle",
+            "name": "addStyle"
+        }
+    },
+    {
+        "_postman_id": "b5b77afe-97cb-e13c-c0a2-ec49c7646d5c",
+        "name": "删除样式|deleteStyle",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+                "raw": "{{baseUrl}}/resource/styles/delete/:id",
+                "host": [
+                    "{{baseUrl}}"
+                ],
+                "path": [
+                    "resource",
+                    "styles",
+                    "delete",
+                    ":id"
+                ],
+                "variable": [
+                    {
+                        "key": "id",
+                        "value": ""
+                    }
+                ]
+            },
+            "name": "deleteStyle",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "847013ca-f783-6378-ad0a-12c013476c48",
+        "name": "下载样式|downloadStyle",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+                "raw": "{{baseUrl}}/resource/styles/download/:id",
+                "host": [
+                    "{{baseUrl}}"
+                ],
+                "path": [
+                    "resource",
+                    "styles",
+                    "download",
+                    ":id"
+                ],
+                "variable": [
+                    {
+                        "key": "id",
+                        "value": ""
+                    }
+                ]
+            },
+            "name": "downloadStyle",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "c4d07ce5-6599-0d14-f517-0bcf44972be2",
+        "name": "查询空间参考|findSrsById",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+                "raw": "{{baseUrl}}/data/spatialreferencesystem/findbyid/:id",
+                "host": [
+                    "{{baseUrl}}"
+                ],
+                "path": [
+                    "data",
+                    "spatialreferencesystem",
+                    "findbyid",
+                    ":id"
+                ],
+                "variable": [
+                    {
+                        "key": "id",
+                        "value": ""
+                    }
+                ]
+            },
+            "name": "findSrsById",
+            "rule": {
+                "id": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "859487a8-9f59-7e77-f94e-7191247ef4ad",
+        "name": "查询地图文档|findMapLayer",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"organizationId\":\"402878815ec17f53015ec1e907c40000\",\n\t\"userId\":\"402878815ec17f53015ec1ea7430000b\",\n\t\"typeId\":\"50002\"\n}"
+            },
+            "url": "{{baseUrl}}/resource/resourcemapex/findall",
+            "name": "findMapLayer",
+            "rule": {
+                "organizationId": {
+                    "type": "string",
+                    "required": true
+                },
+                "userId": {
+                    "type": "string",
+                    "required": true
+                },
+                "typeId": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "67f44c8c-e68a-1a69-5522-674a837f1e4a",
+        "name": "新增地图文档|createMapLayer",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"infoEntity\": {\n\t\t\"catalogId\": \"402878815ec17f53015ec1e908320004\",\n\t\t\"description\": \"\",\n\t\t\"info\": {},\n\t\t\"name\": \"\",\n\t\t\"typeId\": \"50002\",\n\t\t\"userId\": \"402878815ec17f53015ec1ea7430000b\",\n\t\t\"userName\": \"portal\"\n\t},\n\t\"mapExEntity\": {\n\t\t\"info\": \"\"\n\t}\n}"
+            },
+            "url": "{{baseUrl}}/resource/resourcemapex/add",
+            "name": "createMapLayer",
+            "rule": {
+                "infoEntity": {
+                    "type": "object",
+                    "required": true,
+                    "rule": {}
+                },
+                "catalogId": {
+                    "type": "string",
+                    "required": true
+                },
+                "description": {
+                    "type": "string",
+                    "required": true
+                },
+                "info": {
+                    "type": "object",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "required": true
+                },
+                "typeId": {
+                    "type": "string",
+                    "required": true
+                },
+                "userId": {
+                    "type": "string",
+                    "required": true
+                },
+                "userName": {
+                    "type": "string",
+                    "required": true
+                },
+                "mapExEntity": {
+                    "type": "object",
+                    "required": true,
+                    "rule": {}
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "ac3c3caa-7f5c-5c3b-67ca-384401380a2f",
+        "name": "用户登录|login",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"name\": \"admin\",\n\t\"password\": \"e10adc3949ba59abbe56e057f20f883e\"\n}"
+            },
+            "url": "{{baseUrl}}/user-center/user/login",
+            "name": "login",
+            "rule": {
+                "name": {
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "78bbe595-5c5e-06c4-796d-620b34d093e1",
+        "name": "查询样式|findStyle",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"objCondition\": {\n\t\t\"orgId\":\"\",\n\t\t\"start\":\"\",\n\t\t\"end\":\"\",\n\t\t\"alias\":\"\",\n\t\t\"type\":\"\",\n\t\t\"classify\":\"\"\n\t},\n\t\"pageIndex\":1,\n\t\"pageSize\":15\n}"
+            },
+            "url": "{{baseUrl}}/resource/styles/findpagelist",
+            "name": "findStyle",
+            "rule": {
+                "objCondition": {
+                    "type": "object",
+                    "required": true,
+                    "rule": {
+                        "orgId": {
+                            "type": "string",
+                            "require": true
+                        },
+                        "start": {
+                            "type": "date",
+                            "require": false
+                        },
+                        "end": {
+                            "type": "date",
+                            "require": false
+                        },
+                        "alias": {
+                            "type": "string",
+                            "require": false
+                        },
+                        "type": {
+                            "type": "string",
+                            "require": false
+                        },
+                        "classify": {
+                            "type": "string",
+                            "require": false
+                        }
+                    }
+                },
+                "pageIndex": {
+                    "type": "number",
+                    "required": true
+                },
+                "pageSize": {
+                    "type": "number",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "5ace8f6e-8823-7ce6-6042-958071aafa84",
+        "name": "查询空间参考|findSrs",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"objCondition\":{\n\t\t\"authSrId\":\"\"\n\t},\n\t\"pageIndex\":1,\n\t\"pageSize\":100\n}"
+            },
+            "url": "{{baseUrl}}/data/spatialreferencesystem/findpagelist",
+            "name": "findSrs",
+            "rule": {
+                "objCondition": {
+                    "type": "object",
+                    "required": true,
+                    "rule": {
+                        "authSrId": {
+                            "type": "string",
+                            "require": true
+                        }
+                    }
+                },
+                "pageIndex": {
+                    "type": "number",
+                    "required": true
+                },
+                "pageSize": {
+                    "type": "number",
+                    "required": true
+                }
+            }
+        }
+    },
+    {
+        "_postman_id": "ea24a83f-86d6-85b9-4004-a2ba197ee728",
+        "name": "查询服务|findService",
+        "request": {
+            "method": "POST",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "{\n\t\"resourceId\":\"402878815ec6c4da015ec74316a70000\",\n\t\"serivestatus\":0,\n\t\"baseservicetype\":1,\n\t\"metadataLayer\": 1\n}"
+            },
+            "url": "{{baseUrl}}/service/servicesinfo/findall",
+            "name": "findService",
+            "rule": {
+                "resourceId": {
+                    "type": "string",
+                    "required": true
+                },
+                "serivestatus": {
+                    "type": "number",
+                    "required": false
+                },
+                "baseservicetype": {
+                    "type": "number",
+                    "required": false
+                },
+                "metadataLayer": {
+                    "type": "number",
+                    "required": false
+                }
+            }
+        }
+    }
+]
